@@ -68,11 +68,6 @@ public class DefaultProductService implements ProductService
         return productRepository.findProductsByProductType(type);
     }
 
-    private  void someFunc()
-    {
-        System.out.println("someLogic");
-
-    }
 
 
 }
