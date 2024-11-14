@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        button#back {
+            background-color: #f44336;
+            color: white;
+        }
+        button#back:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Available Products</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Product Type</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Thymeleaf выражение для отображения списка продуктов -->
+    <tr th:each="product : ${productList}">
+        <td th:text="${product.productType}">Product Type</td>
+        <td th:text="${product.name}">Product Name</td>
+        <td th:text="${product.quantity}">Product Quantity</td>
+        <td th:text="${product.price}">Product Price</td>
+    </tr>
+    </tbody>
+</table>
+<div class="button-container">
+    <button id="back" type="button" onclick="location.href='/home'">Back</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Header Section -->
+<header>
+    <div>My Store</div>
+    <div class="button-container">
+        <button id="add" onclick="location.href='products/add'">Add Product</button>
+    </div>
+</header>
+
+<!-- Layout Container with Sidebar and Main Content -->
+<div class="container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <h3>Categories</h3>
+        <ul>
+            <li th:each="category : ${categories}">
+                <a href="#" th:attr="data-category=${category.toLowerCase()}" onclick="loadCategoryProducts(this.getAttribute('data-category')); return false;" th:text="${category}"></a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Area (Product Catalog) -->
+    <main class="main-content">
+        <h2>Product Catalog</h2>
+        <div class="catalog">
+
+            <div class="product" th:each="product : ${productList}" style="position: relative;" th:attr="data-product-id=${product.id}">
+                <span class="remove-button" onclick="removeProduct(this)">✖</span>
+                <a th:href="@{/products/{id}(id=${product.id})}" class="product-link">
+                <img th:src="@{/external-image(fileName=${product.imageUrl})}" th:alt="${product.name}" />
+                <h4 th:text="${product.name}">Product Name</h4>
+                <p th:text="${product.price}">Price</p>
+                <p th:text="${product.productType}">Price</p>
+                </a>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="js/removeProduct.js"></script>
+<script>
+    function loadCategoryProducts(category) {
+        fetch(`/products/category/${category}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to load products");
+                }
+                return response.text(); // Ожидаем HTML-фрагмент
+            })
+            .then(html => {
+                document.querySelector('.main-content .catalog').innerHTML = html; // Обновляем только каталог продуктов
+            })
+            .catch(error => console.error("Error loading products:", error));
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключите ваш CSS файл -->
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        color: #333;
+    }
+
+    header {
+        background-color: #008080;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+<header>
+    <div>My Store</div>
+</header>
+<div class="product-details" th:object="${product}">
+    <h1 th:text="*{name}">Название</h1>
+    <p><strong>Тип:</strong> <span th:text="*{productType.name}">Product Type</span></p>
+    <p><strong>Цена:</strong> <span th:text="*{price}">Price</span></p>
+    <p><strong>Описание:</strong> <span th:text="*{productDescription.description}">Description</span></p>
+    <p><strong>Состав:</strong> <span th:text="*{productDescription.composition}">Composition</span></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button#check {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button#check:hover {
+            background-color: #45a049;
+        }
+        button#add {
+            background-color: #008CBA;
+            color: white;
+        }
+        button#add:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome!</h1>
+    <div class="button-container">
+        <button id="check" onclick="location.href='/check'">Check Availability</button>
+        <button id="add" onclick="location.href='/add'">Add Product</button>
+    </div>
+</div>
+</body>
+</html>
