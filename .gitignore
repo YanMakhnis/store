@@ -1,4 +1,6 @@
-git add .gitignoreHELP.md
+git add .gitignore
+HELP.md
+tasklist.txt
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
