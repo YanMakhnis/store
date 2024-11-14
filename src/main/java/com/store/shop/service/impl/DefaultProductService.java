@@ -65,6 +65,7 @@ public class DefaultProductService implements ProductService
     @Override
     public List<Product> getProductsByCategory(String category) {
         ProductType type = ProductUtils.getProductTypeFromDisplayName(category);
+        System.out.println("done");
         return productRepository.findProductsByProductType(type);
     }
 
