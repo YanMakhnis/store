@@ -70,6 +70,7 @@ header {
     transition: box-shadow 0.3s;
 }
 .product:hover {
+    transform: translateY(-10px);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 .product img {
@@ -173,4 +174,11 @@ button#back {
 }
 button#back:hover {
     background-color: #00563B;
+}
+
+footer {
+    background-color: #f0f0f0; /* Светло-серый цвет фона */
+    padding: 20px;              /* Отступы внутри футера */
+    text-align: center;         /* Центрирование текста */
+    margin-top: 20px;          /* Отступ сверху */
 }

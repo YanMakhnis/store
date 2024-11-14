@@ -12,6 +12,14 @@
     </header>
 </div>
 
+<!-- Common footer -->
+
+<footer>
+    <p>&copy; <span id="currentYear"></span> My Store. Все права защищены.</p>
+    <p>Контакты: info@mystore.com | Телефон: +1 (234) 567-890</p>
+    <p>Адрес: Улица Примерная, 1, Минск, Беларусь</p>
+</footer>
+
 <!-- fragments/productList.html -->
 <div th:fragment="catalog">
     <div class="product" th:each="product : ${productList}" style="position: relative;" th:attr="data-product-id=${product.id}">
