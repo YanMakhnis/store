@@ -65,17 +65,16 @@ public class ProductController
     public String addNewProduct(
             @ModelAttribute("product") Product product,
             @RequestParam("image") MultipartFile image, // параметр для файла изображения
-            Model model,
-            RedirectAttributes redirectAttributes) {
+            Model model) {
 
         try {
             String imageUrl = fileStorageService.saveFile(image);
             product.setImageUrl(imageUrl);
             productService.saveProduct(product);
 
-            redirectAttributes.addFlashAttribute("message",
+            model.addAttribute("message",
                     "Product successfully saved. Product id - " + product.getId());
-            return "redirect:/addedProductPage";
+            return "addedProductPage";
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +89,7 @@ public class ProductController
         //TODO change to DTO
         List<Product> productList = productService.getProductsByCategory(category);
         model.addAttribute("productList", productList);
-        return "fragments/productList :: catalog";
+        return "fragments/fragments :: catalog";
     }
 
 }

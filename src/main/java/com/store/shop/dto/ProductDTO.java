@@ -12,4 +12,5 @@ public class ProductDTO
     private String name;
     private double price;
     private ProductDescription productDescription;
+    private String imageUrl;
 }

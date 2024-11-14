@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fragments</title>
+</head>
+<body>
+
+<!-- Фрагмент заголовка -->
+<div th:fragment="header">
+    <header>
+        <div>My Store</div>
+    </header>
+</div>
+
 <!-- fragments/productList.html -->
 <div th:fragment="catalog">
     <div class="product" th:each="product : ${productList}" style="position: relative;" th:attr="data-product-id=${product.id}">
@@ -10,3 +24,6 @@
         </a>
     </div>
 </div>
+
+</body>
+</html>

@@ -8,19 +8,16 @@
 </head>
 <body>
 <!-- Header Section -->
-<header>
-    <div>My Store</div>
-    <div class="button-container">
-        <button id="add" onclick="location.href='products/add'">Add Product</button>
-    </div>
-</header>
+<div th:insert="fragments/fragments :: header"></div>
 
 <!-- Layout Container with Sidebar and Main Content -->
 <div class="container">
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
-        <h3>Categories</h3>
         <ul>
+            <li>
+            <a th:href="@{/main}" th:text="'Все категории'" class="allCategories"></a>
+            </li>
             <li th:each="category : ${categories}">
                 <a href="#" th:attr="data-category=${category.toLowerCase()}" onclick="loadCategoryProducts(this.getAttribute('data-category')); return false;" th:text="${category}"></a>
             </li>
@@ -44,22 +41,11 @@
         </div>
     </main>
 </div>
+<div class="button-container">
+    <button id="add" onclick="location.href='products/add'">Add Product</button>
+</div>
 <script src="js/removeProduct.js"></script>
-<script>
-    function loadCategoryProducts(category) {
-        fetch(`/products/category/${category}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Failed to load products");
-                }
-                return response.text(); // Ожидаем HTML-фрагмент
-            })
-            .then(html => {
-                document.querySelector('.main-content .catalog').innerHTML = html; // Обновляем только каталог продуктов
-            })
-            .catch(error => console.error("Error loading products:", error));
-    }
-</script>
+<script src="js/loadCategoryProducts.js"></script>
 </body>
 
 </html>
