@@ -70,6 +70,7 @@ public class DefaultProductService implements ProductService
 
     private  void someFunc()
     {
+        System.out.println("someLogic");
 
     }
 
