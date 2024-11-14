@@ -1,9 +1,0 @@
-1. Replace price with BigDecimal
-2. Check the log error
-3. Finish api for uploading image for one product
-4. Update dropdown ProductType for Product add page for another goods
-5. + Make file name unique
-6. Добавить возможность добавлять продукт с картинкой через рест.
-7. Перенести скрипты в отдельные файлы js (выяснить bestPractice)
-8. Перенести cтили в отдельные файлы css (выяснить bestPractice)
-9. Добавить удаление картинки после удаления продукта
